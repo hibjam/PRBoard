@@ -1,0 +1,2 @@
+ALTER TABLE users ADD COLUMN height_cm SMALLINT;
+ALTER TABLE users ADD COLUMN weight_kg DECIMAL(5, 2);

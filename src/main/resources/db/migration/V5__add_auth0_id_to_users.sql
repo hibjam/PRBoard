@@ -1,0 +1,2 @@
+ALTER TABLE users
+    ADD COLUMN auth0_id VARCHAR(255) UNIQUE;

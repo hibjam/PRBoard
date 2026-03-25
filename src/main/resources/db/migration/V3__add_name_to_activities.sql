@@ -1,0 +1,2 @@
+ALTER TABLE activities
+    ADD COLUMN name VARCHAR(255);
