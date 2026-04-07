@@ -29,7 +29,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/callback/strava").permitAll()
+                        .requestMatchers("/health", "/callback/strava", "/callback/wahoo").permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.disable())
@@ -46,7 +46,7 @@ public class SecurityConfig {
         OAuth2TokenValidator<Jwt> audienceValidator = new JwtClaimValidator<List<String>>(
                 "aud", aud -> aud != null && aud.contains(audience));
 
-        OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuer);
+        OAuth2TokenValidator<Jwt> withIssuer   = JwtValidators.createDefaultWithIssuer(issuer);
         OAuth2TokenValidator<Jwt> withAudience = new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
 
         decoder.setJwtValidator(withAudience);

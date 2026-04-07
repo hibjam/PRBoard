@@ -16,4 +16,5 @@ public class RecentActivityDto {
     private OffsetDateTime startTime;
     private boolean indoor;
     private String pacePerKm;
+    private String source;
 }

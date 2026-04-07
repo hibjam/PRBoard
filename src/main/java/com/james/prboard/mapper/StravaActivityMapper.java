@@ -3,7 +3,7 @@ package com.james.prboard.mapper;
 import com.james.prboard.domain.Activity;
 import com.james.prboard.domain.ActivityEnduranceData;
 import com.james.prboard.domain.ActivityWeightliftingSession;
-import com.james.prboard.model.StravaActivityResponseDto;
+import com.james.prboard.model.strava.StravaActivityResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

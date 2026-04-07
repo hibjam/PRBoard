@@ -5,6 +5,7 @@ import com.james.prboard.domain.constant.StatsPeriod;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -30,4 +31,6 @@ public class ActivityStatsDto {
 
     // Streak — always all-time regardless of period
     private Integer currentWeeklyStreak;
+
+    private Set<String> sources;  // e.g. {"STRAVA"} or {"STRAVA", "GARMIN"}
 }

@@ -1,6 +1,6 @@
-package com.james.prboard.repository;
+package com.james.prboard.repository.strava;
 
-import com.james.prboard.domain.StravaSession;
+import com.james.prboard.domain.strava.StravaSession;
 import com.james.prboard.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

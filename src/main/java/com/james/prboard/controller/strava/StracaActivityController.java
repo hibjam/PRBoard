@@ -1,11 +1,11 @@
-package com.james.prboard.controller;
+package com.james.prboard.controller.strava;
 
 import com.james.prboard.domain.User;
 import com.james.prboard.model.ActivityDto;
 import com.james.prboard.model.ReclassifyRequestDto;
 import com.james.prboard.service.ActivityService;
 import com.james.prboard.service.ReclassifyService;
-import com.james.prboard.service.StravaActivityService;
+import com.james.prboard.service.strava.StravaActivityService;
 import com.james.prboard.service.UserResolutionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping("/activities")
 @Slf4j
 @RequiredArgsConstructor
-public class ActivityController {
+public class StracaActivityController {
 
     private final ActivityService activityService;
     private final StravaActivityService stravaActivityService;

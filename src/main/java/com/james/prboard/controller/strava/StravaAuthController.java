@@ -1,6 +1,6 @@
-package com.james.prboard.controller;
+package com.james.prboard.controller.strava;
 
-import com.james.prboard.service.StravaAuthService;
+import com.james.prboard.service.strava.StravaAuthService;
 import com.james.prboard.service.UserResolutionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

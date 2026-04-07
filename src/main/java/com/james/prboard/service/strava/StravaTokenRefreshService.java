@@ -1,9 +1,9 @@
-package com.james.prboard.service;
+package com.james.prboard.service.strava;
 
 import com.james.prboard.config.StravaConfig;
-import com.james.prboard.domain.StravaSession;
-import com.james.prboard.model.StravaTokenResponseDto;
-import com.james.prboard.repository.StravaSessionRepository;
+import com.james.prboard.domain.strava.StravaSession;
+import com.james.prboard.model.strava.StravaTokenResponseDto;
+import com.james.prboard.repository.strava.StravaSessionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;

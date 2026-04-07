@@ -1,6 +1,6 @@
-package com.james.prboard.repository;
+package com.james.prboard.repository.strava;
 
-import com.james.prboard.domain.StravaOAuthState;
+import com.james.prboard.domain.strava.StravaOAuthState;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
