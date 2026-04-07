@@ -1,7 +1,8 @@
 package com.james.prboard.controller;
 
+import com.james.prboard.controller.strava.StravaAuthController;
 import com.james.prboard.domain.User;
-import com.james.prboard.service.StravaAuthService;
+import com.james.prboard.service.strava.StravaAuthService;
 import com.james.prboard.service.UserResolutionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

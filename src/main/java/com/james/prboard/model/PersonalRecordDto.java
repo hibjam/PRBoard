@@ -18,4 +18,6 @@ public class PersonalRecordDto {
     private String formattedValue;
     private String activityName;
     private OffsetDateTime achievedAt;
+
+    private String source;  // the source of the activity that set the PR
 }

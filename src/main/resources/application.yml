@@ -38,4 +38,5 @@ strava:
   redirect-uri: ${STRAVA_REDIRECT_URI}
 
 wahoo:
+  client-id: ${WAHOO_CLIENT_ID}
   redirect-uri: ${WAHOO_REDIRECT_URI}

@@ -1,16 +1,18 @@
-package com.james.prboard.service;
+package com.james.prboard.service.strava;
 
 import com.james.prboard.config.StravaConfig;
 import com.james.prboard.domain.Activity;
 import com.james.prboard.domain.ActivityEnduranceData;
 import com.james.prboard.domain.ActivityWeightliftingSession;
 import com.james.prboard.domain.Discipline;
-import com.james.prboard.domain.StravaSession;
+import com.james.prboard.domain.strava.StravaSession;
 import com.james.prboard.domain.User;
 import com.james.prboard.mapper.StravaActivityMapper;
-import com.james.prboard.model.StravaActivityResponseDto;
+import com.james.prboard.model.strava.StravaActivityResponseDto;
 import com.james.prboard.repository.ActivityRepository;
 import com.james.prboard.repository.DisciplineRepository;
+import com.james.prboard.service.ActivityDeduplicationService;
+import com.james.prboard.service.PersonalRecordService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;

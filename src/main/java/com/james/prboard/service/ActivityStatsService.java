@@ -46,7 +46,6 @@ public class ActivityStatsService {
 
         List<Activity> allActivities = activityRepository.findAllWithDataByUserUserId(userId);
 
-        // Filter to period upfront — all stats reflect the selected period
         OffsetDateTime periodStart = period.startDate();
         List<Activity> periodActivities = periodStart == null ? allActivities :
                 allActivities.stream()
@@ -56,7 +55,6 @@ public class ActivityStatsService {
         Map<String, List<Activity>> byDisciplineCode = periodActivities.stream()
                 .collect(Collectors.groupingBy(a -> a.getDiscipline().getCode()));
 
-        // Streak uses all activities regardless of period
         Map<String, List<Activity>> allByDisciplineCode = allActivities.stream()
                 .collect(Collectors.groupingBy(a -> a.getDiscipline().getCode()));
 
@@ -142,6 +140,12 @@ public class ActivityStatsService {
 
         int streak = calculateWeeklyStreak(allActivities);
 
+        // Collect distinct sources from all activities in this period for this discipline
+        Set<String> sources = activities.stream()
+                .map(Activity::getSource)
+                .filter(s -> s != null)
+                .collect(Collectors.toSet());
+
         return new ActivityStatsDto(
                 discipline, "ENDURANCE", period,
                 (long) activities.size(), totalKm, (long) totalSeconds,
@@ -149,7 +153,8 @@ public class ActivityStatsService {
                 totalElevation.compareTo(BigDecimal.ZERO) > 0 ? totalElevation : null,
                 bestElevation,
                 avgHeartRate, peakAvgHeartRate,
-                streak
+                streak,
+                sources
         );
     }
 
@@ -183,12 +188,19 @@ public class ActivityStatsService {
 
         int streak = calculateWeeklyStreak(allActivities);
 
+        // Collect distinct sources from all activities in this period for this discipline
+        Set<String> sources = activities.stream()
+                .map(Activity::getSource)
+                .filter(s -> s != null)
+                .collect(Collectors.toSet());
+
         return new ActivityStatsDto(
                 discipline, "WEIGHTLIFTING", period,
                 (long) activities.size(), totalVolume, (long) totalSeconds,
                 heaviestSession, avgSessionVolume, null,
                 null, null, null, null,
-                streak
+                streak,
+                sources
         );
     }
 
@@ -230,6 +242,7 @@ public class ActivityStatsService {
                     dto.setName(activity.getName());
                     dto.setDiscipline(Discipline.fromCode(activity.getDiscipline().getCode()));
                     dto.setStartTime(activity.getStartTime());
+                    dto.setSource(activity.getSource());
 
                     ActivityEnduranceData endurance = activity.getEnduranceData();
                     if (endurance != null) {

@@ -82,6 +82,7 @@ public class PersonalRecordQueryService {
         dto.setValue(pr.getValue());
         dto.setActivityName(pr.getActivity().getName());
         dto.setAchievedAt(pr.getAchievedAt());
+        dto.setSource(pr.getActivity().getSource());
 
         if (pr.getTarget() != null) {
             dto.setTargetId(pr.getTarget().getId());

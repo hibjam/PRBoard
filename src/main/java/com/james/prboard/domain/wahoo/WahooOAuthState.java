@@ -1,4 +1,4 @@
-package com.james.prboard.domain;
+package com.james.prboard.domain.wahoo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,10 +14,10 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "strava_oauth_states")
+@Table(name = "wahoo_oauth_states")
 @Getter
 @Setter
-public class StravaOAuthState {
+public class WahooOAuthState {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,9 @@ public class StravaOAuthState {
 
     @Column(name = "state_token", nullable = false, unique = true, length = 64)
     private String stateToken;
+
+    @Column(name = "code_verifier", nullable = false, length = 128)
+    private String codeVerifier;
 
     @Column(name = "user_id", nullable = false)
     private UUID userId;

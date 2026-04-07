@@ -1,5 +1,6 @@
-package com.james.prboard.domain;
+package com.james.prboard.domain.strava;
 
+import com.james.prboard.domain.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
