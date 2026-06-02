@@ -16,7 +16,7 @@ public enum StatsPeriod {
         OffsetDateTime now = OffsetDateTime.now();
         return switch (this) {
             case WEEK  -> now.minusWeeks(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
-            case MONTH -> now.withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
+            case MONTH -> now.minusMonths(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
             case YEAR  -> now.minusYears(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
             case ALL_TIME -> null;
         };
